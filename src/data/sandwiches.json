@@ -1,0 +1,128 @@
+[
+  {
+    "id": 0,
+    "name": "egg salad",
+    "price": 8.99,
+    "bread": "white",
+    "garnish": "avocado art",
+    "notes": "to make egg salad: boil, peel, chop eggs, then mix ingredients",
+    "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2014/8/22/0/YW0512_Mini-Egg-Salad-Sandwiches_s4x3.jpg.rend.hgtvcom.826.620.suffix/1600389811344.jpeg",
+    "ingredients": [
+      "eggs",
+      "mayo",
+      "sour cream",
+      "lil bit of mustard",
+      "green onion",
+      "salt",
+      "pepper",
+      "paprika",
+      "herbs",
+      "watercress"
+    ]
+  },
+  {
+    "id": 1,
+    "name": "tuna salad",
+    "price": 9.99,
+    "bread": "pumpernickel",
+    "garnish": "maybe avocado slice?",
+    "notes": "tuna salad is better if left to chill for a day.",
+    "image": "https://www.culinaryhill.com/wp-content/uploads/2018/09/The-Best-Tuna-Salad-Culinary-Hill-square-2-1.jpg",
+    "ingredients": [
+      "tuna",
+      "celery",
+      "garlic",
+      "mayo",
+      "sour cream",
+      "lemon juice",
+      "salt",
+      "pepper"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "cucumber",
+    "price": 7.99,
+    "bread": "white",
+    "garnish": "festive dill",
+    "notes": "yum",
+    "image": "https://hurrythefoodup.com/wp-content/uploads/2018/10/cucumber-sandwich-4.jpg",
+    "ingredients": ["cucumbers", "cream cheese", "butter", "dill"]
+  },
+  {
+    "id": 3,
+    "name": "goat cheese n pecan",
+    "price": 10.99,
+    "bread": "white",
+    "garnish": "honey + pecan sprinkle",
+    "notes": "delicious",
+    "image": "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F2009%2F10%2F20%2Fcheese-sandwiches-sl-1932550-x.jpg",
+    "ingredients": [
+      "goat cheese",
+      "pecan",
+      "red pepper jelly",
+      "honey for garnish"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "smoked salmon",
+    "price": 11.99,
+    "bread": "pumpernickel or whole wheat",
+    "garnish": "thin tomato ring",
+    "notes": "simple but effective",
+    "image": "https://www.seriouseats.com/recipes/images/2012/04/05022012-203470-british-bites-smoked-salmon-dill-tea-sandwiches-primary.jpg",
+    "ingredients": ["smoked salmon", "goat cheese", "tomato", "dill"]
+  },
+  {
+    "id": 5,
+    "name": "tomato mozzarella",
+    "price": 8.99,
+    "bread": "pumpernickel",
+    "garnish": "basil leaf",
+    "notes": "mozz must be fresh n juicy",
+    "image": "https://www.bowlofdelicious.com/wp-content/uploads/2015/03/Fresh-Mozzarella-Tomato-and-Basil-Sandwiches-with-Balsamic-Glaze-1.jpg",
+    "ingredients": ["tomato", "mozzarella", "basil", "placeholder"]
+  },
+  {
+    "id": 6,
+    "name": "strawberry 'shortcake'",
+    "price": 9.99,
+    "bread": "pound cake slices",
+    "garnish": "thin slice strawberry",
+    "notes": "dessert",
+    "image": "https://www.anecdotesandapples.com/wp-content/uploads/2013/05/IMG_0520-1024x682.jpg",
+    "ingredients": ["strawberries", "cream cheese", "mint", "heavy whip cream"]
+  },
+  {
+    "id": 7,
+    "name": "fruit",
+    "price": 12.99,
+    "bread": "pound cake slices",
+    "garnish": "fruit flower slice",
+    "notes": "very pretty",
+    "image": "https://www.justonecookbook.com/wp-content/uploads/2019/06/Fruit-Sandwich-5576-I-3-500x500.jpg",
+    "ingredients": [
+      "fruits",
+      "edible flower?",
+      "heavy whip cream",
+      "strawberry",
+      "kiwi",
+      "mango",
+      "apple",
+      "blackberry",
+      "pineapple",
+      "etc"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "apple brie pecan",
+    "price": 10.99,
+    "bread": "pound cake slices or crostini",
+    "garnish": "honey + apple slice",
+    "notes": "informations",
+    "image": "https://i.pinimg.com/originals/62/32/27/623227f6d179d29c4b8d9afed9b8884d.jpg",
+    "ingredients": ["apple", "brie", "pecan", "honey"]
+  }
+]
