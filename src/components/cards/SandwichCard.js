@@ -7,14 +7,8 @@ import Ingredients from "./Ingredients";
 import { Link } from "react-router-dom";
 
 const SandwichCard = ({ sandwich }) => {
-  const { addToCart, setShowToast, setToastItem } = useContext(CartContext);
+  const { cartClick } = useContext(CartContext);
   const [message, setMessage] = useState(sandwich.name);
-
-  const clickPlus = (item, price) => {
-    addToCart(item, price);
-    setShowToast(true);
-    setToastItem(item);
-  };
 
   return (
     <>
@@ -39,7 +33,19 @@ const SandwichCard = ({ sandwich }) => {
             className="d-flex justify-content-center align-items-center"
           >
             <div
-              onClick={() => clickPlus(sandwich.name, sandwich.price)}
+              onClick={() => cartClick(sandwich.name, sandwich.price, "remove")}
+              className="bg-white text-info"
+              style={{
+                borderRadius: "100%",
+                padding: "3px 10px",
+                cursor: "pointer",
+              }}
+            >
+              -
+            </div>
+            <h4 className="pt-2">${sandwich.price}</h4>
+            <div
+              onClick={() => cartClick(sandwich.name, sandwich.price, "add")}
               className="bg-white text-info"
               style={{
                 borderRadius: "100%",
@@ -49,7 +55,6 @@ const SandwichCard = ({ sandwich }) => {
             >
               +
             </div>
-            <h4 className="pt-2">${sandwich.price}</h4>
           </div>
         </div>
         <div className="card-body bg-secondary">

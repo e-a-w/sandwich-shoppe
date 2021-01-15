@@ -10,9 +10,12 @@ const HomePage = () => {
         tagline="welcome to the sandwich shoppe"
       />
 
-      <div className="d-flex flex-wrap" style={{ gap: "20px" }}>
+      <div
+        className="d-flex flex-column flex-md-row justify-content-around"
+        style={{ gap: "15px" }}
+      >
         <LinkContainer to="/menu" style={{ cursor: "pointer" }}>
-          <div className="jumbotron bg-secondary shadow">
+          <div className="jumbotron bg-secondary shadow d-flex justify-content-center align-items-center">
             <h2 className="text-white">Menu</h2>
           </div>
         </LinkContainer>
@@ -20,8 +23,13 @@ const HomePage = () => {
           to={`/sandwich/${new Date().getDay()}`}
           style={{ cursor: "pointer" }}
         >
-          <div className="jumbotron bg-secondary shadow">
+          <div className="jumbotron bg-secondary shadow d-flex justify-content-center align-items-center">
             <h2 className="text-white">Sandwich of the Day</h2>
+          </div>
+        </LinkContainer>
+        <LinkContainer to="/about" style={{ cursor: "pointer" }}>
+          <div className="jumbotron bg-secondary shadow d-flex  justify-content-center align-items-center">
+            <h2 className="text-white">Why Fancy Sandwiches?</h2>
           </div>
         </LinkContainer>
       </div>

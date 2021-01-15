@@ -8,6 +8,7 @@ const Navigation = () => {
   return (
     <Navbar bg="info" sticky="top" className="shadow" expand="md">
       <Navbar.Brand
+        as={Link}
         to="/"
         className="text-white d-flex align-items-center justify-content-between"
       >
@@ -21,7 +22,7 @@ const Navigation = () => {
             🍞&nbsp;&nbsp;Full Menu
           </Nav.Link>
           <Nav.Link as={Link} className="text-white" to={`/sandwich/0`}>
-            ℹ️&nbsp;&nbsp;Sandwiches
+            🥙&nbsp;&nbsp;Sandwiches
           </Nav.Link>
           <Nav.Link
             as={Link}
@@ -29,6 +30,9 @@ const Navigation = () => {
             to={`/sandwich/${new Date().getDay()}`}
           >
             🗓️&nbsp;&nbsp;Sandwich of the Day
+          </Nav.Link>
+          <Nav.Link as={Link} className="text-white" to="/about">
+            ℹ️&nbsp;&nbsp;About
           </Nav.Link>
           <Nav.Link as={Link} className="text-white" to="/cart">
             🛒&nbsp;&nbsp;Cart: ${total}

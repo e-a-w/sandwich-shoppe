@@ -5,7 +5,7 @@ const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState({});
   const [total, setTotal] = useState();
   const [showToast, setShowToast] = useState(false);
-  const [toastItem, setToastItem] = useState("");
+  const [toastText, setToastText] = useState({});
 
   const addToCart = (item, price) => {
     let quantity = 1;
@@ -37,6 +37,30 @@ const CartContextProvider = ({ children }) => {
     setTotal(t.toFixed(2));
   };
 
+  const cartArray = () => {
+    let arr = [];
+    for (const item in cart) {
+      arr.push(cart[item]);
+    }
+    return arr;
+  };
+
+  const cartClick = (item, price, addOrRemove, show = true) => {
+    if (addOrRemove === "add") {
+      addToCart(item, price);
+    } else if (addOrRemove === "remove") {
+      removeFromCart(item, price);
+    }
+
+    if (show) {
+      setShowToast(show);
+      setToastText({ item, price, action: addOrRemove, cart: cartArray() });
+      setTimeout(() => {
+        setShowToast(false);
+      }, 4000);
+    }
+  };
+
   useEffect(() => {
     calculateTotal();
   }, [cart]);
@@ -51,8 +75,9 @@ const CartContextProvider = ({ children }) => {
         total,
         showToast,
         setShowToast,
-        toastItem,
-        setToastItem,
+        toastText,
+        setToastText,
+        cartClick,
       }}
     >
       {children}

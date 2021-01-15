@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 import { LinkContainer } from "react-router-bootstrap";
 import { useParams } from "react-router-dom";
 import sandwiches from "../../data/sandwiches.json";
 
 const Header = ({ title, tagline }) => {
+  const { cartClick } = useContext(CartContext);
   const { id } = useParams();
   const end = sandwiches.length - 1;
+  const sandwich = sandwiches[id];
 
   const goBack = () => {
     const n = Number(id);
@@ -51,6 +54,35 @@ const Header = ({ title, tagline }) => {
       <div id="header-title">
         <h1 className="text-white">{title}</h1>
         <h5 className="text-white">{tagline}</h5>
+        {id && (
+          <div
+            className="d-flex justify-content-center align-items-center"
+            style={{ width: "100%", gap: "10px" }}
+          >
+            <div
+              onClick={() => cartClick(sandwich.name, sandwich.price, "remove")}
+              style={{
+                borderRadius: "5px",
+                width: "2rem",
+                cursor: "pointer",
+              }}
+              className="bg-white text-info"
+            >
+              -
+            </div>
+            <div
+              onClick={() => cartClick(sandwich.name, sandwich.price, "add")}
+              style={{
+                borderRadius: "5px",
+                width: "2rem",
+                cursor: "pointer",
+              }}
+              className="bg-white text-info"
+            >
+              +
+            </div>
+          </div>
+        )}
       </div>
       {id && (
         <LinkContainer

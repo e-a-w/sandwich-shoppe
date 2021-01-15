@@ -3,7 +3,7 @@ import { CartContext } from "../../context/CartContext";
 import { Button, Table } from "react-bootstrap";
 
 const Cart = () => {
-  const { cart, addToCart, removeFromCart, total } = useContext(CartContext);
+  const { cart, cartClick, total } = useContext(CartContext);
 
   return (
     <div className="card bg-secondary text-white shadow">
@@ -11,11 +11,11 @@ const Cart = () => {
         <h2>Your Cart</h2>
         <Table
           striped
-          borderless
+          bordered
           hover
           size="sm"
           className="table-light text-center shadow"
-          style={{ maxWidth: "300px", borderRadius: "3px" }}
+          style={{ maxWidth: "300px", borderRadius: "5px" }}
         >
           <tbody>
             {Object.keys(cart).map(item => {
@@ -26,14 +26,18 @@ const Cart = () => {
                   <td
                     className="text-danger"
                     style={{ cursor: "pointer" }}
-                    onClick={() => removeFromCart(item, cart[item].price)}
+                    onClick={() =>
+                      cartClick(item, cart[item].price, "remove", false)
+                    }
                   >
                     -
                   </td>
                   <td
                     className="text-success"
                     style={{ cursor: "pointer" }}
-                    onClick={() => addToCart(item, cart[item].price)}
+                    onClick={() =>
+                      cartClick(item, cart[item].price, "add", false)
+                    }
                   >
                     +
                   </td>
@@ -53,7 +57,7 @@ const Cart = () => {
                   </td>
                 </>
               ) : (
-                <td colspan="4" className="text-center text-primary">
+                <td colSpan="4" className="text-center text-primary">
                   your cart is empty! time to buy some delicious sandwiches
                 </td>
               )}
