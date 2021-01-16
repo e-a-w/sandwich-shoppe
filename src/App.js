@@ -8,6 +8,7 @@ import SandwichPage from "./pages/SandwichPage";
 import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
 import AboutPage from "./pages/AboutPage";
+import CheckoutPage from "./pages/CheckoutPage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/menu" component={CardPage} />
             <Route exact path="/cart" component={CartPage} />
+            <Route exact path="/cart/checkout" component={CheckoutPage} />
             <Route exact path="/about" component={AboutPage} />
             <Route exact path="/sandwich/:id" component={SandwichPage} />
             <Route path="/">

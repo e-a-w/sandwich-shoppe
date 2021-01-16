@@ -1638,11 +1638,11 @@ pre code {
 .table td,
 .table th {
   padding: 0.75rem;
-  vertical-align: top;
+  vertical-align: middle;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 .table thead th {
-  vertical-align: bottom;
+  vertical-align: middle;
   border-bottom: 2px solid rgba(0, 0, 0, 0.05);
 }
 .table tbody + tbody {
@@ -6292,6 +6292,9 @@ button.bg-dark:hover {
 }
 .bg-white {
   background-color: #fff !important;
+}
+.bg-darker-green {
+  background-color: #4aac85 !important;
 }
 .bg-transparent {
   background-color: transparent !important;

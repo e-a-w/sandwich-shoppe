@@ -29,7 +29,7 @@ const HomePage = () => {
         </LinkContainer>
         <LinkContainer to="/about" style={{ cursor: "pointer" }}>
           <div className="jumbotron bg-secondary shadow d-flex  justify-content-center align-items-center">
-            <h2 className="text-white">Why Fancy Sandwiches?</h2>
+            <h2 className="text-white text-center">Why Fancy Sandwiches?</h2>
           </div>
         </LinkContainer>
       </div>

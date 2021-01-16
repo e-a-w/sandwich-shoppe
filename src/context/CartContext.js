@@ -15,6 +15,8 @@ const CartContextProvider = ({ children }) => {
     }
 
     setCart({ ...cart, [item]: { price, quantity } });
+
+    return quantity;
   };
 
   const removeFromCart = (item, price) => {
@@ -25,6 +27,8 @@ const CartContextProvider = ({ children }) => {
     }
 
     setCart({ ...cart, [item]: { price, quantity } });
+
+    return quantity;
   };
 
   const calculateTotal = () => {
@@ -37,27 +41,22 @@ const CartContextProvider = ({ children }) => {
     setTotal(t.toFixed(2));
   };
 
-  const cartArray = () => {
-    let arr = [];
-    for (const item in cart) {
-      arr.push(cart[item]);
-    }
-    return arr;
-  };
-
   const cartClick = (item, price, addOrRemove, show = true) => {
+    let quantity = 0;
+
     if (addOrRemove === "add") {
-      addToCart(item, price);
+      quantity = addToCart(item, price);
     } else if (addOrRemove === "remove") {
-      removeFromCart(item, price);
+      quantity = removeFromCart(item, price);
     }
 
-    if (show) {
+    if (show && quantity) {
       setShowToast(show);
-      setToastText({ item, price, action: addOrRemove, cart: cartArray() });
+      setToastText({ item, price, action: addOrRemove });
+      clearTimeout();
       setTimeout(() => {
         setShowToast(false);
-      }, 4000);
+      }, 8000);
     }
   };
 
@@ -69,14 +68,10 @@ const CartContextProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cart,
-        setCart,
-        addToCart,
-        removeFromCart,
         total,
         showToast,
         setShowToast,
         toastText,
-        setToastText,
         cartClick,
       }}
     >
