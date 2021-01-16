@@ -1,46 +1,36 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import { Button, Table } from "react-bootstrap";
+import { Button, Table, Card } from "react-bootstrap";
+import AddRemoveButtons from "../cart/AddRemoveButtons.js";
+import { useHistory } from "react-router-dom";
 
 const Cart = () => {
-  const { cart, cartClick, total } = useContext(CartContext);
+  const { cart, total } = useContext(CartContext);
+  const history = useHistory();
 
   return (
-    <div className="card bg-secondary text-white shadow">
-      <div className="card-body d-flex flex-column align-items-center">
+    <Card className="bg-secondary text-white border-0 shadow">
+      <Card.Body className="d-flex flex-column align-items-center">
         <h2>Your Cart</h2>
         <Table
           striped
-          bordered
+          borderless
           hover
           size="sm"
           className="table-light text-center shadow"
-          style={{ maxWidth: "300px", borderRadius: "5px" }}
+          style={{
+            maxWidth: "400px",
+            borderRadius: "5px",
+            borderCollapse: "separate",
+          }}
         >
           <tbody>
-            {Object.keys(cart).map(item => {
+            {Object.keys(cart).map((item, idx) => {
               return (
                 <tr key={item}>
                   <td>{item} sandwich</td>
-                  <td>{cart[item].quantity}</td>
-                  <td
-                    className="text-danger"
-                    style={{ cursor: "pointer" }}
-                    onClick={() =>
-                      cartClick(item, cart[item].price, "remove", false)
-                    }
-                  >
-                    -
-                  </td>
-                  <td
-                    className="text-success"
-                    style={{ cursor: "pointer" }}
-                    onClick={() =>
-                      cartClick(item, cart[item].price, "add", false)
-                    }
-                  >
-                    +
-                  </td>
+                  <td style={{ minWidth: "2rem" }}>{cart[item].quantity}</td>
+                  <AddRemoveButtons item={item} price={cart[item].price} />
                 </tr>
               );
             })}
@@ -64,9 +54,14 @@ const Cart = () => {
             </tr>
           </tfoot>
         </Table>
-        <Button className="btn-info shadow">checkout</Button>
-      </div>
-    </div>
+        <Button
+          className="btn-info shadow"
+          onClick={() => history.push("/cart/checkout")}
+        >
+          ready to checkout?
+        </Button>
+      </Card.Body>
+    </Card>
   );
 };
 

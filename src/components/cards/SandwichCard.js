@@ -5,6 +5,7 @@ import Bread from "./Bread";
 import Notes from "./Notes";
 import Ingredients from "./Ingredients";
 import { Link } from "react-router-dom";
+import { Button, Card } from "react-bootstrap";
 
 const SandwichCard = ({ sandwich }) => {
   const { cartClick } = useContext(CartContext);
@@ -12,11 +13,11 @@ const SandwichCard = ({ sandwich }) => {
 
   return (
     <>
-      <div
-        className="card text-white border-0 shadow"
+      <Card
+        className="text-white border-0 shadow"
         style={{ width: "100%", maxWidth: "300px" }}
       >
-        <div className="card-header text-center bg-primary position-relative">
+        <Card.Header className="text-center bg-primary position-relative">
           <div className="sandwich-icon">
             <Link
               onMouseEnter={() => setMessage("click to see more!")}
@@ -27,12 +28,14 @@ const SandwichCard = ({ sandwich }) => {
               🥪
             </Link>
           </div>
-          <h2 className="card-title">{message}</h2>
+          <Card.Title as="h2" className="text-white">
+            {message}
+          </Card.Title>
           <div
             style={{ gap: "15px" }}
             className="d-flex justify-content-center align-items-center"
           >
-            <div
+            <Button
               onClick={() => cartClick(sandwich.name, sandwich.price, "remove")}
               className="bg-white text-info"
               style={{
@@ -42,9 +45,9 @@ const SandwichCard = ({ sandwich }) => {
               }}
             >
               -
-            </div>
+            </Button>
             <h4 className="pt-2">${sandwich.price}</h4>
-            <div
+            <Button
               onClick={() => cartClick(sandwich.name, sandwich.price, "add")}
               className="bg-white text-info"
               style={{
@@ -54,16 +57,16 @@ const SandwichCard = ({ sandwich }) => {
               }}
             >
               +
-            </div>
+            </Button>
           </div>
-        </div>
-        <div className="card-body bg-secondary">
+        </Card.Header>
+        <Card.Body className="bg-secondary">
           <Garnish garnish={sandwich.garnish} />
           <Bread bread={sandwich.bread} />
           <Notes notes={sandwich.notes} />
           <Ingredients ingredients={sandwich.ingredients} />
-        </div>
-      </div>
+        </Card.Body>
+      </Card>
     </>
   );
 };

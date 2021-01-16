@@ -3,6 +3,7 @@ import Garnish from "../cards/Garnish";
 import Bread from "../cards/Bread";
 import Notes from "../cards/Notes";
 import Ingredients from "../cards/Ingredients";
+import { Card } from "react-bootstrap";
 
 const Sandwich = ({ sandwich }) => {
   const imageStyle = {
@@ -14,8 +15,8 @@ const Sandwich = ({ sandwich }) => {
   };
 
   return (
-    <div className="card bg-secondary text-white border-0 shadow">
-      <div style={{ gap: "30px" }} className="card-body d-flex s-img-container">
+    <Card className="bg-secondary text-white border-0 shadow">
+      <Card.Body style={{ gap: "30px" }} className="d-flex s-img-container">
         <div className="s-image shadow-sm" style={imageStyle}></div>
         <div
           className="bg-white text-info align-self-start px-5 pt-3 pb-3 shadow-sm"
@@ -26,8 +27,8 @@ const Sandwich = ({ sandwich }) => {
           <Notes notes={sandwich.notes} />
           <Ingredients ingredients={sandwich.ingredients} />
         </div>
-      </div>
-    </div>
+      </Card.Body>
+    </Card>
   );
 };
 

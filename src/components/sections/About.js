@@ -1,9 +1,10 @@
 import React from "react";
+import { Card } from "react-bootstrap";
 
 const About = () => {
   return (
-    <div className="card bg-secondary border-0 shadow">
-      <div className="card-body text-white text-center">
+    <Card className="bg-secondary text-white border-0 shadow text-center">
+      <Card.Body>
         <h3 className="text-white pt-3 pb-3">
           Who doesn't love the sandwich life?
         </h3>
@@ -11,8 +12,8 @@ const About = () => {
           Fancy sandwiches are delicious, beautiful & brighten everyone's day.
           Check out our delicious selection!
         </p>
-      </div>
-    </div>
+      </Card.Body>
+    </Card>
   );
 };
 

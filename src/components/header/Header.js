@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { LinkContainer } from "react-router-bootstrap";
 import { useParams } from "react-router-dom";
+import { Button, Jumbotron } from "react-bootstrap";
 import sandwiches from "../../data/sandwiches.json";
 
 const Header = ({ title, tagline }) => {
@@ -31,16 +32,13 @@ const Header = ({ title, tagline }) => {
   const arrowStyle = {
     cursor: "pointer",
     borderRadius: "100%",
-    padding: "5px 15px",
-    width: "50px",
     justifySelf: "center",
+    padding: "10px 18px",
+    fontWeight: "bolder",
   };
 
   return (
-    <header
-      id="page-header"
-      className="jumbotron text-center bg-primary shadow mb-5"
-    >
+    <Jumbotron id="page-header" className="text-center bg-primary shadow mb-5">
       {id && (
         <LinkContainer
           id="left-arrow"
@@ -48,7 +46,7 @@ const Header = ({ title, tagline }) => {
           style={arrowStyle}
           to={`/sandwich/${goBack()}`}
         >
-          <h2>{`<`}</h2>
+          <Button>{`<`}</Button>
         </LinkContainer>
       )}
       <div id="header-title">
@@ -59,28 +57,30 @@ const Header = ({ title, tagline }) => {
             className="d-flex justify-content-center align-items-center"
             style={{ width: "100%", gap: "10px" }}
           >
-            <div
+            <Button
               onClick={() => cartClick(sandwich.name, sandwich.price, "remove")}
               style={{
                 borderRadius: "5px",
-                width: "2rem",
                 cursor: "pointer",
+                fontWeight: "bolder",
+                width: "2.5rem",
               }}
-              className="bg-white text-info"
+              className="bg-white text-danger"
             >
               -
-            </div>
-            <div
+            </Button>
+            <Button
               onClick={() => cartClick(sandwich.name, sandwich.price, "add")}
               style={{
                 borderRadius: "5px",
-                width: "2rem",
                 cursor: "pointer",
+                fontWeight: "bolder",
+                width: "2.5rem",
               }}
               className="bg-white text-info"
             >
               +
-            </div>
+            </Button>
           </div>
         )}
       </div>
@@ -91,10 +91,10 @@ const Header = ({ title, tagline }) => {
           style={arrowStyle}
           to={`/sandwich/${goForward()}`}
         >
-          <h2>{`>`}</h2>
+          <Button>{`>`}</Button>
         </LinkContainer>
       )}
-    </header>
+    </Jumbotron>
   );
 };
 
