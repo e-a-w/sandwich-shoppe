@@ -1950,23 +1950,28 @@ pre code {
   box-shadow: 0 0 0 0.2rem rgba(120, 194, 173, 0.25);
 }
 .form-control::-webkit-input-placeholder {
-  color: #888;
+  font-style: italic;
+  color: rgb(189, 189, 189);
   opacity: 1;
 }
 .form-control::-moz-placeholder {
-  color: #888;
+  font-style: italic;
+  color: rgb(189, 189, 189);
   opacity: 1;
 }
 .form-control:-ms-input-placeholder {
-  color: #888;
+  font-style: italic;
+  color: rgb(189, 189, 189);
   opacity: 1;
 }
 .form-control::-ms-input-placeholder {
-  color: #888;
+  font-style: italic;
+  color: rgb(189, 189, 189);
   opacity: 1;
 }
 .form-control::placeholder {
-  color: #888;
+  font-style: italic;
+  color: rgb(189, 189, 189);
   opacity: 1;
 }
 .form-control:disabled,

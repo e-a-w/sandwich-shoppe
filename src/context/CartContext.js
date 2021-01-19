@@ -3,7 +3,13 @@ const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState({});
-  const [total, setTotal] = useState();
+  const [total, setTotal] = useState(0);
+  const [totalPrice, setTotalPrice] = useState({
+    tax: (total * 0.03).toFixed(2),
+    delivery: 2.5,
+    tip: (total * 0.2).toFixed(2),
+  });
+
   const [showToast, setShowToast] = useState(false);
   const [toastText, setToastText] = useState({});
 
@@ -31,7 +37,7 @@ const CartContextProvider = ({ children }) => {
     return quantity;
   };
 
-  const calculateTotal = () => {
+  const calculateItemTotal = () => {
     let t = 0;
 
     for (const item in cart) {
@@ -61,7 +67,7 @@ const CartContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    calculateTotal();
+    calculateItemTotal();
   }, [cart]);
 
   return (
@@ -73,6 +79,7 @@ const CartContextProvider = ({ children }) => {
         setShowToast,
         toastText,
         cartClick,
+        totalPrice,
       }}
     >
       {children}

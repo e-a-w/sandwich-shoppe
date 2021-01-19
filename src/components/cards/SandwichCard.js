@@ -1,14 +1,13 @@
-import React, { useState, useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+import React, { useState } from "react";
 import Garnish from "./Garnish";
 import Bread from "./Bread";
 import Notes from "./Notes";
 import Ingredients from "./Ingredients";
+import CardBtns from "./CardBtns";
 import { Link } from "react-router-dom";
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 const SandwichCard = ({ sandwich }) => {
-  const { cartClick } = useContext(CartContext);
   const [message, setMessage] = useState(sandwich.name);
 
   return (
@@ -31,34 +30,7 @@ const SandwichCard = ({ sandwich }) => {
           <Card.Title as="h2" className="text-white">
             {message}
           </Card.Title>
-          <div
-            style={{ gap: "15px" }}
-            className="d-flex justify-content-center align-items-center"
-          >
-            <Button
-              onClick={() => cartClick(sandwich.name, sandwich.price, "remove")}
-              className="bg-white text-info"
-              style={{
-                borderRadius: "100%",
-                padding: "3px 10px",
-                cursor: "pointer",
-              }}
-            >
-              -
-            </Button>
-            <h4 className="pt-2">${sandwich.price}</h4>
-            <Button
-              onClick={() => cartClick(sandwich.name, sandwich.price, "add")}
-              className="bg-white text-info"
-              style={{
-                borderRadius: "100%",
-                padding: "3px 10px",
-                cursor: "pointer",
-              }}
-            >
-              +
-            </Button>
-          </div>
+          <CardBtns item={sandwich.name} price={sandwich.price} />
         </Card.Header>
         <Card.Body className="bg-secondary">
           <Garnish garnish={sandwich.garnish} />
